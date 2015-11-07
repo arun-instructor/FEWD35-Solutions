@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spotify API Player</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container margin-top-20">
+	<!--Search Form-->
+	<div class="row">
+		<form id="song-search-form">
+			<div class="col-sm-10">
+				<input type="text" name="search" class="form-control" placeholder="Search for Songs!" />
+			</div>
+			<div class="col-sm-2">
+				<button type="submit" class="btn btn-primary btn-block">Search Songs</button>
+			</div>
+		</form>
+	</div>
+	<!--/Search Form-->
+
+	<div id="song-container"></div>
+
+	<script id="song-template" type="text/x-handlebars-template">
+		<!--One Song-->
+		<div class="row margin-top-20 one-song">
+			<div class="col-sm-3">
+				<img src="{{albumImage}}" class="img-responsive" />
+			</div>
+			<div class="col-sm-9">
+				<h2>{{songTitle}}</h2>
+				<p>
+					By {{artistName}}
+				</p>
+				<p>
+					Album: {{albumName}}
+				</p>
+				<div class="margin-top-20">
+					<audio controls>
+						<source src="{{previewUrl}}" type="audio/mpeg">
+					</audio>
+				</div>
+			</div>
+		</div>
+		<!--/One Song-->
+	</script>
+</div>
+
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="libraries/handlebars-v4.0.4.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
